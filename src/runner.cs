@@ -4,7 +4,8 @@ namespace AOC2022
     {
         public static void Main(string[] args)
         {
-            Day1.Run();
+            //Day1.Run();
+            Day2.Run();
         }
     }
 }
