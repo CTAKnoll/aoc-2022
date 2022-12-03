@@ -14,21 +14,21 @@ namespace AOC2022
             Console.WriteLine(Part2(input));
         }
 
-        public enum Choice
+        private enum Choice
         {
             Rock = 1,
             Paper = 2,
             Scissors = 3,  
         }
 
-        public enum WinStatus
+        private enum WinStatus
         {
             Lose = 0,
             Draw = 3,
             Win = 6
         }
 
-        public static Choice MapToChoice(string choice)
+        private static Choice MapToChoice(string choice)
         {
             switch(choice)
             {
@@ -42,7 +42,7 @@ namespace AOC2022
             }
         }
 
-        public static WinStatus MapToStatus(string choice)
+        private static WinStatus MapToStatus(string choice)
         {
             switch(choice)
             {
@@ -56,7 +56,7 @@ namespace AOC2022
             }
         }
 
-        public static WinStatus GetStatus(Choice you, Choice opp)
+        private static WinStatus GetStatus(Choice you, Choice opp)
         {
             if(you == Choice.Rock)
                 return opp == Choice.Rock ? WinStatus.Draw : opp == Choice.Paper ? WinStatus.Lose : WinStatus.Win;
@@ -67,7 +67,7 @@ namespace AOC2022
             return WinStatus.Lose;
         }
 
-        public static Choice GetChoice(Choice opp, WinStatus outcome)
+        private static Choice GetChoice(Choice opp, WinStatus outcome)
         {
             if(opp == Choice.Rock)
                 return outcome == WinStatus.Win ? Choice.Paper : outcome == WinStatus.Draw ? Choice.Rock : Choice.Scissors;
@@ -78,7 +78,7 @@ namespace AOC2022
             return Choice.Rock;
         }
 
-        public static int Score(Choice you, WinStatus status)
+        private static int Score(Choice you, WinStatus status)
         {
             return (int) you + (int) status;
         }
